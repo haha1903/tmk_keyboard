@@ -150,12 +150,48 @@ static void  init_cols(void)
     PORTD |=  (1<<7 | 1<<6 | 1<<4);
     DDRC  &= ~(1<<7 | 1<<6);
     PORTC |=  (1<<7 | 1<<6);
-    DDRB  &= ~(1<<7 | 1<<6 | 1<< 5 | 1<<4 | 1<<3 | 1<<1 | 1<<0);
-    PORTB |=  (1<<7 | 1<<6 | 1<< 5 | 1<<4 | 1<<3 | 1<<1 | 1<<0);
+#if defined(GH60_REV_CHN) || defined(GH60_REV_CNY)
+    DDRB  &= ~(1<<PB7 | 1<<PB5 | 1<<PB4 | 1<<PB3 | 1<<PB1 | 1<<PB0);
+    PORTB |=  (1<<PB7 | 1<<PB5 | 1<<PB4 | 1<<PB3 | 1<<PB1 | 1<<PB0);
+#else
+    DDRB  &= ~(1<<PB7 | 1<<PB6 | 1<<PB5 | 1<<PB4 | 1<<PB3 | 1<<PB1 | 1<<PB0);
+    PORTB |=  (1<<PB7 | 1<<PB6 | 1<<PB5 | 1<<PB4 | 1<<PB3 | 1<<PB1 | 1<<PB0);
+#endif
 }
 
 static matrix_row_t read_cols(void)
 {
+#if defined(GH60_REV_CHN)
+    return (PINF&(1<<PF0) ? 0 : (1<<0)) |
+           (PINF&(1<<PF1) ? 0 : (1<<1)) |
+           (PINE&(1<<PE6) ? 0 : (1<<2)) |
+           (PINC&(1<<PC7) ? 0 : (1<<3)) |
+           (PINC&(1<<PC6) ? 0 : (1<<4)) |
+           (PINB&(1<<PB7) ? 0 : (1<<5)) |
+           (PIND&(1<<PD4) ? 0 : (1<<6)) |
+           (PINB&(1<<PB1) ? 0 : (1<<7)) |
+           (PINB&(1<<PB0) ? 0 : (1<<8)) |
+           (PINB&(1<<PB5) ? 0 : (1<<9)) |
+           (PINB&(1<<PB4) ? 0 : (1<<10)) |
+           (PIND&(1<<PD7) ? 0 : (1<<11)) |
+           (PIND&(1<<PD6) ? 0 : (1<<12)) |
+           (PINB&(1<<PB3) ? 0 : (1<<13));
+#elif defined(GH60_REV_CNY)
+    return (PINF&(1<<PF0) ? 0 : (1<<0)) |
+           (PINF&(1<<PF1) ? 0 : (1<<1)) |
+           (PINE&(1<<PE6) ? 0 : (1<<2)) |
+           (PINC&(1<<PC7) ? 0 : (1<<3)) |
+           (PINC&(1<<PC6) ? 0 : (1<<4)) |
+           (PINB&(1<<PB7) ? 0 : (1<<5)) |
+           (PIND&(1<<PD4) ? 0 : (1<<6)) |
+           (PINB&(1<<PB0) ? 0 : (1<<7)) |
+           (PINB&(1<<PB1) ? 0 : (1<<8)) |
+           (PINB&(1<<PB5) ? 0 : (1<<9)) |
+           (PINB&(1<<PB4) ? 0 : (1<<10)) |
+           (PIND&(1<<PD7) ? 0 : (1<<11)) |
+           (PIND&(1<<PD6) ? 0 : (1<<12)) |
+           (PINB&(1<<PB3) ? 0 : (1<<13));
+#else
     return (PINF&(1<<0) ? 0 : (1<<0)) |
            (PINF&(1<<1) ? 0 : (1<<1)) |
            (PINE&(1<<6) ? 0 : (1<<2)) |
@@ -170,6 +206,7 @@ static matrix_row_t read_cols(void)
            (PIND&(1<<7) ? 0 : (1<<11)) |
            (PIND&(1<<6) ? 0 : (1<<12)) |
            (PINB&(1<<3) ? 0 : (1<<13));
+#endif
 }
 
 /* Row pin configuration
