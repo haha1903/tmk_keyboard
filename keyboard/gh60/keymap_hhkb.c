@@ -22,7 +22,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,      \
         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,       \
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,     RSFT,FN0,       \
-        CAPS,LALT,LGUI,          SPC,                     RGUI,RALT,RCTL,FN0),
+        FN2 ,LALT,LGUI,          SPC,                     RGUI,RALT,RCTL,FN1),
     /* 1: HHKB Fn layer
      * ,-----------------------------------------------------------.
      * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
@@ -42,6 +42,44 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,VOLD,VOLU,MUTE,EJCT,TRNS,PAST,PSLS,HOME,PGUP,LEFT,RGHT,     PENT,      \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PPLS,PMNS,END, PGDN,DOWN,     TRNS,TRNS,      \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+    /* 2: HHKB FN1 layer Mouse
+     * ,-----------------------------------------------------------.
+     * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+     * |-----------------------------------------------------------|
+     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |     |
+     * |-----------------------------------------------------------|
+     * |      |VoD|VoU|Mut|Ejc|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_HHKB(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,BTN1,MS_U,BTN2,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      \
+        TRNS,TRNS,MS_L,MS_D,MS_R,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,      \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,      \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+    /* 3: HHKB FN2 layer Idea
+     * ,-----------------------------------------------------------.
+     * |Pwr| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
+     * |-----------------------------------------------------------|
+     * |Caps |   |   |   |   |   |   |   |Psc|Slk|Pus|Up |   |     |
+     * |-----------------------------------------------------------|
+     * |      |VoD|VoU|Mut|Ejc|   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |  +|  -|End|PgD|Dow|      |   |
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_HHKB(
+        TRNS,FN11,FN3, TRNS,TRNS,TRNS,TRNS,FN4, FN12,FN5, FN6, TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,FN7, END, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,UP,  FN8, FN9, TRNS,      \
+        TRNS,HOME,TRNS,TRNS,RGHT,TRNS,TRNS,TRNS,TRNS,FN10,TRNS,TRNS,     TRNS,      \
+        TRNS,TRNS,TRNS,PGUP,PGDN,LEFT,DOWN,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,      \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 };
 
 /*
@@ -49,4 +87,16 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_MOMENTARY(1),
+    [1] = ACTION_LAYER_MOMENTARY(2),
+    [2] = ACTION_LAYER_MOMENTARY(3),
+    [3] = ACTION_MODS_KEY(MOD_LCTL, KC_F2),
+    [4] = ACTION_MODS_KEY(MOD_LALT, KC_F7),
+    [5] = ACTION_MODS_KEY(MOD_LSFT, KC_F9),
+    [6] = ACTION_MODS_KEY(MOD_LSFT, KC_F10),
+    [7] = ACTION_MODS_KEY(MOD_LGUI, KC_F4),
+    [8] = ACTION_MODS_KEY(MOD_LGUI | MOD_LALT, KC_LEFT),
+    [9] = ACTION_MODS_KEY(MOD_LGUI | MOD_LALT, KC_RGHT),
+    [10] = ACTION_MODS_KEY(MOD_LGUI | MOD_LCTL, KC_L),
+    [11] = ACTION_MODS_KEY(MOD_LALT, KC_F1),
+    [12] = ACTION_MODS_KEY(MOD_LGUI, KC_F8),
 };
