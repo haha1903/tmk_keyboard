@@ -63,7 +63,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
     /* 3: HHKB FN2 layer Idea
      * ,-----------------------------------------------------------.
-     * |  |FN11|FN3|   |   |   |   |FN4|FN12|FN5|FN6|  |   |   |   |
+     * |  |FN11|FN3|   |   |   |   |FN4|FN12|FN5|FN6|  |FN13|  |   |
      * |-----------------------------------------------------------|
      * |     |   |FN7|END|   |   |   |   |   |   | Up|FN8|FN9|     |
      * |-----------------------------------------------------------|
@@ -75,7 +75,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     KEYMAP_HHKB(
-        TRNS,FN11,FN3, TRNS,TRNS,TRNS,TRNS,FN4, FN12,FN5, FN6, TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,FN11,FN3, TRNS,TRNS,TRNS,TRNS,FN4, FN12,FN5, FN6, TRNS,FN13,TRNS,TRNS,  \
         TRNS,TRNS,FN7, END, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,UP,  FN8, FN9, TRNS,      \
         TRNS,HOME,TRNS,TRNS,RGHT,TRNS,TRNS,TRNS,TRNS,FN10,TRNS,TRNS,     TRNS,      \
         TRNS,TRNS,TRNS,PGUP,PGDN,LEFT,DOWN,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,      \
@@ -99,4 +99,5 @@ const uint16_t PROGMEM fn_actions[] = {
     [10] = ACTION_MODS_KEY(MOD_LGUI | MOD_LCTL, KC_L),
     [11] = ACTION_MODS_KEY(MOD_LALT, KC_F1),
     [12] = ACTION_MODS_KEY(MOD_LGUI, KC_F8),
+    [13] = ACTION_MODS_KEY(MOD_LGUI, KC_F12),
 };
