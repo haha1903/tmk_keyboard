@@ -50,7 +50,8 @@ TARGET_DIR = .
 # project specific files
 SRC =	keymap_common.c \
 	matrix.c \
-	led.c
+	led.c \
+	backlight.c
 
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
@@ -120,6 +121,7 @@ EXTRAKEY_ENABLE = yes	# Audio control and System control(+450)
 CONSOLE_ENABLE = yes	# Console for debug(+400)
 COMMAND_ENABLE = yes    # Commands for debug and configuration
 SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+BACKLIGHT_ENABLE = yes	# BACKLIGHT ENABLE
 NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
 
 

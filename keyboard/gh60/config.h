@@ -69,4 +69,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define GH60_REV_CHN	1
 
+#define BACKLIGHT_LEVELS 2
+
 #endif
