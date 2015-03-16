@@ -46,20 +46,20 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
      * |-----------------------------------------------------------|
-     * |     |   |Bn1|MsU|Bn2|   |   |   |   |   |   |   |   |     |
+     * |     |   |   |MsU|   |   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
-     * |      |   |MsL|MsD|MsR|   |   |   |   |   |   |   |        |
+     * |      |Bn1|MsL|MsD|MsR|Bn2|   |   |   |   |   |   |        |
      * |-----------------------------------------------------------|
-     * |        |   |   |   |   |   |   |   |   |   |   |      |   |
+     * |        |   |   |WhU|WhD|   |   |   |   |   |   |      |   |
      * |-----------------------------------------------------------|
      * |    |    |    |                        |    |    |    |    |
      * `-----------------------------------------------------------'
      */
     KEYMAP_HHKB(
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,BTN1,MS_U,BTN2,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      \
-        TRNS,TRNS,MS_L,MS_D,MS_R,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,      \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,      \
+        TRNS,TRNS,TRNS,MS_U,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      \
+        TRNS,BTN1,MS_L,MS_D,MS_R,BTN2,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,      \
+        TRNS,TRNS,TRNS,WH_D,WH_U,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS,TRNS,      \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
     /* 3: HHKB FN2 layer Idea
      * ,-----------------------------------------------------------.
